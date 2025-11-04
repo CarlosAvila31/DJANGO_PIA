@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Producto</title>
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+</head>
+<body>
+    {% include 'menu.html' %}
+    <div class="form-container">
+        <h1>Editar Producto</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" value="{{ producto.nombre }}" required>
+
+            <label for="precio">Precio:</label>
+            <input type="text" id="precio" name="precio" value="{{ producto.precio }}" required>
+
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" rows="4">{{ producto.descripcion }}</textarea>
+
+            <label for="categoria">Categoría:</label>
+            <select name="categoria" id="categoria" required>
+                <option value="">Selecciona una categoría</option>
+                {% for cat in categorias %}
+                    <option value="{{ cat.id }}" {% if producto.categoria.id == cat.id %}selected{% endif %}>
+                        {{ cat.nombre }}
+                    </option>
+                {% endfor %}
+            </select>
+            
+            <button type="submit">Actualizar</button>
+            <button><a href="{% url 'listar' %}" class="btn">Volver</a></button>
+        </form>
+    </div>
+</body>
+</html>

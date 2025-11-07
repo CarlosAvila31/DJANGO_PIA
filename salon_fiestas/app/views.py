@@ -7,6 +7,10 @@ from .models import RESERVACION, SHOW
 def inicio(request):
     return render(request, 'index.html')
 
+def listar_reservaciones(request):
+    reservaciones = RESERVACION.objects.all()
+    return render(request, 'listar.html', {'reservaciones': reservaciones})
+
 def crear_reservacion(request):
     if request.method == 'POST':
         nombre_cliente = request.POST['nombre_cliente']

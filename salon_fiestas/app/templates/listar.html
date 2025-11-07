@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Productos</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}"> <!-- se utiliza para hacer referencia a los archivos externos -->
+    <link rel="stylesheet" href="{% static 'css/stylelistar.css' %}"> <!-- se utiliza para hacer referencia a los archivos externos -->
     <script src="{% static 'js/confirmar.js' %}"></script>
 </head>
 
@@ -17,19 +17,27 @@
     <table class="tabla-productos">
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Precio</th>
+                <th>Nombre del Cliente</th>
+                <th>Fecha el Evento</th>
+                <th># Invitados</th>
+                <th>Tipo de Evento</th>
+                <th>Telefono</th>
+                <th>Estatus</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            {% for producto in productos %}
+            {% for reservacion in reservaciones %}
             <tr>
-                <td>{{ producto.nombre }}</td>
-                <td>${{ producto.precio }}</td>
+                <td>{{ reservacion.nombre_cliente }}</td>
+                <td>${{ reservacion.fecha_evento }}</td>
+                <td>{{ reservacion.num_invitados }}</td>
+                <td>{{ reservacion.tipo_evento }}</td>
+                <td>{{ reservacion.telefono_contacto }}</td>
+                <td>{{ reservacion.estatus }}</td>
                 <td>
-                    <a class="boton-editar" href="{% url 'editar' producto.id %}">Editar</a>
-                    <a class="boton-eliminar" href="{% url 'eliminar' producto.id %}" onclick="return confirmarEliminacion()">Eliminar</a>
+                    <a class="boton-editar" href="{% url 'editar' reservacion.id %}">Editar</a>
+                    <a class="boton-eliminar" href="{% url 'eliminar' reservacion.id %}" onclick="return confirmarEliminacion()">Eliminar</a>
                 </td>
             </tr>
             {% empty %}

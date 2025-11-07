@@ -86,12 +86,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // validación simple HTML5 + mensajes custom
     const name = document.getElementById('name');
     const email = document.getElementById('email');
+    const tel = document.getElementById('telefono');
     const msg = document.getElementById('message');
+   
 
     if (!name.value.trim() || name.value.trim().length < 2) { alert('Por favor escribe tu nombre (mínimo 2 caracteres).'); name.focus(); return; }
     if (!validateEmail(email.value.trim())) { alert('Ingresa un correo válido.'); email.focus(); return; }
+    if (!tel.value.trim() || tel.value.trim().length !== 10) { alert('Si proporcionas un teléfono, debe tener al menos 10 dígitos.'); tel.focus(); return; }
     if (!msg.value.trim() || msg.value.trim().length < 6) { alert('Escribe un mensaje más detallado (mínimo 6 caracteres).'); msg.focus(); return; }
-    
 
     // Simulación de envío
     alert('Mensaje enviado con éxito. ¡Gracias por contactarnos!');

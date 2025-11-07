@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!name.value.trim() || name.value.trim().length < 2) { alert('Por favor escribe tu nombre (mínimo 2 caracteres).'); name.focus(); return; }
     if (!validateEmail(email.value.trim())) { alert('Ingresa un correo válido.'); email.focus(); return; }
     if (!msg.value.trim() || msg.value.trim().length < 6) { alert('Escribe un mensaje más detallado (mínimo 6 caracteres).'); msg.focus(); return; }
+    
 
     // Simulación de envío
     alert('Mensaje enviado con éxito. ¡Gracias por contactarnos!');

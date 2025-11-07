@@ -13,12 +13,12 @@ def listar_reservaciones(request):
 
 def crear_reservacion(request):
     if request.method == 'POST':
-        nombre_cliente = request.POST['nombre_cliente']
-        fecha_evento = request.POST['fecha_evento']
-        num_invitados = request.POST['num_invitados']
-        tipo_evento = request.POST['tipo_evento']
-        telefono_contacto = request.POST['telefono_contacto']
-        estatus = request.POST['estatus']
+        nombre_cliente = request.POST['txtNombre_Cliente']
+        fecha_evento = request.POST['txtFecha']
+        num_invitados = request.POST['txtNum_Inv']
+        tipo_evento = request.POST['txtTipo_Evento']
+        telefono_contacto = request.POST['txtTelefono_Contacto']
+        estatus = request.POST['ddlestatus']
 
         RESERVACION.objects.create(nombre_cliente=nombre_cliente, fecha_evento=fecha_evento, num_invitados=num_invitados, tipo_evento=tipo_evento, telefono_contacto=telefono_contacto, estatus=estatus)
         return redirect('listar')
@@ -27,12 +27,12 @@ def crear_reservacion(request):
 def editar_reservacion(request, id):
     reservacion = get_object_or_404(RESERVACION, id=id)
     if request.method == 'POST':
-        reservacion.nombre_cliente = request.POST['nombre_cliente']
-        reservacion.fecha_evento = request.POST['fecha_evento']
-        reservacion.num_invitados = request.POST['num_invitados']
-        reservacion.tipo_evento = request.POST['tipo_evento']
-        reservacion.telefono_contacto = request.POST['telefono_contacto']
-        reservacion.estatus = request.POST['estatus']
+        reservacion.nombre_cliente = request.POST['txtNombre_Cliente']
+        reservacion.fecha_evento = request.POST['txtFecha']
+        reservacion.num_invitados = request.POST['txtNum_Inv']
+        reservacion.tipo_evento = request.POST['txtTipo_Evento']
+        reservacion.telefono_contacto = request.POST['txtTelefono_Contacto']
+        reservacion.estatus = request.POST['ddlestatus']
 
         reservacion.save()
         return redirect('listar')

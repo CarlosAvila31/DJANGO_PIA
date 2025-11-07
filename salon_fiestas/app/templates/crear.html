@@ -12,21 +12,26 @@
         <h1>Crear Producto</h1>
         <form method="post">
             {% csrf_token %}
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
+            <label for="txtNombre_Cliente">Nombre del Cliente:</label>
+            <input type="text" id="txtNombre_Cliente" name="txtNombre_Cliente" required pattern="[A-Za-z\s]+">
 
-            <label for="precio">Precio:</label>
-            <input type="text" id="precio" name="precio" required>
+            <label for="txtFecha">Fecha:</label>
+            <input type="datetime-local" id="txtFecha" name="txtFecha" required>
 
-            <label for="descripcion">Descripción:</label>
-            <textarea id="descripcion" name="descripcion" rows="4"></textarea>
+            <label for="txtNum_Inv">Numero de Invitados:</label>
+            <input type="number" id="txtNum_Inv" name="txtNum_Inv" required pattern="[0-9]+ o \d+">
 
-            <label for="categoria">Categoría:</label>
-            <select name="categoria" required>
+            <label for="txtTipo_Evento">Tipo de Evento:</label>
+            <input type="text" id="txtTipo_Evento" name="txtTipo_Evento" required pattern="[A-Za-z\s]+">
+
+            <label for="txtTelefono_Contacto">Telefono:</label>
+            <input type="text" id="txtTelefono_Contacto" name="txtTelefono_Contacto" required pattern="^\d{10}$">
+
+            <label for="ddlestatus">Estatus:</label>
+            <select name="ddlestatus" required>
                 <option value="">Selecciona una categoría</option>
-                {% for cat in categorias %}
-                <option value="{{ cat.id }}">{{ cat.nombre }}</option>
-                {% endfor %}
+                <option value="pendiente">pendiente</option>
+                <option value="confirmada">lista</option>
             </select><br>
 
             <!-- Botón para regresar al listado -->

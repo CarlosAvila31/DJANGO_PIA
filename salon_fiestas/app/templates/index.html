@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es" translate="no">
 
 <head>
     {% load static %}
@@ -26,7 +26,7 @@
             </nav>
             <div class="header-actions">
                 <button id="themeToggle" aria-pressed="false" title="Alternar tema">🌗</button>
-                <button class="menu-btn" aria-label="Abrir menú">☰</button>
+                <a href="{% url 'login' %}" class="btn" aria-label="Iniciar Sesión">☰</a>
             </div>
         </div>
     </header>
@@ -123,7 +123,7 @@
         </section>
 
         <!-- Nosotros -->
-        <section id="nosotros" class="section-nosotros-wrap">
+        <section id="nosotros" class="section nosotros wrap">
             <h2>Nosotros</h2>
             <div class="nosotros-grid">
                 <div class="nosotros-text">
